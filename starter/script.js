@@ -94,3 +94,24 @@ const displayMovements = function (movements, sort = false) {
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
+
+//SLICE
+let arr = ['a', 'b', 'c', 'd', 'e'];
+console.log(arr.slice(2));
+console.log(arr.slice(2, 4));
+console.log(arr.slice(-2));
+console.log(arr.slice(-1));
+console.log(arr.slice(1, -2));
+
+//SPLICE
+// arr.splice(2);
+// console.log(arr);
+
+//REVERSE
+let arr2 = ['j', 'i', 'h', 'g', 'f'];
+console.log(arr2.reverse());
+console.log(arr2);
+
+//CONCAT
+const letters = arr.concat(arr2);
+console.log(letters);
