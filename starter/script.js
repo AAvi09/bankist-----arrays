@@ -117,3 +117,24 @@ const letters = arr.concat(arr2);
 console.log(letters);
 
 console.log(letters.join('-'));
+function createStudent(name) {
+  // name parameter is in function scope
+  let score = 0; // private variable in function scope
+
+  return {
+    getName: function () {
+      return name; // lexically bound to parent scope
+    },
+    updateScore: function (newScore) {
+      score = newScore; // can access parent's score
+    },
+    getScore: function () {
+      return score; // can access parent's score
+    },
+  };
+}
+
+let student = createStudent('Raj');
+console.log(student.getName()); // "Raj"
+student.updateScore(95);
+console.log(student.getScore()); // 95
