@@ -140,13 +140,15 @@ student.updateScore(95);
 console.log(student.getScore()); // 95
 
 function disclaimer(message) {
-  let x = message + ' yeh kewal disclaimer he';
+  let x = message + ' ***yeh kewal darane ke liye demand he***';
 
   return function content(pooraMessage) {
-    let y = x + pooraMessage + ' ye poora disclaimer hua ';
+    let y = x + pooraMessage + ' ***ye poori dhamki huiii*** ';
     console.log(y);
   };
 }
 
-let dhamki1 = disclaimer('paise jldi nikal');
-dhamki1('wrna goli maar maar kar tambaa bhrr dunga shareer ke andrr');
+let dhamki1 = disclaimer('paise jldi nikal💲💵💶💷💳💸💰💴💱🧧');
+dhamki1(
+  ' wrna goli🔫💣 maar maar kar tambaa bhrr dunga shareer ke andrr🔥🧨👩‍🚒'
+);
