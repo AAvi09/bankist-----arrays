@@ -152,3 +152,34 @@ let dhamki1 = disclaimer('paise jldi nikal💲💵💶💷💳💸💰💴💱�
 dhamki1(
   ' wrna goli🔫💣 maar maar kar tambaa bhrr dunga shareer ke andrr🔥🧨👩‍🚒'
 );
+
+function createBankAccount(initialBalance) {
+  let balance = initialBalance;
+  let transactions = [];
+
+  return {
+    deposit: function (amount) {
+      balance += amount;
+      transactions.push({ type: 'deposit', amount });
+      return `Balance : ${balance}`;
+    },
+    withdraw: function (amount) {
+      if (amount > balance) {
+        return `not sufficient funds available in the account`;
+      }
+      balance -= amount;
+      transactions.push({ type: 'withdraw', amount });
+      return `Balance: ${balance}`;
+    },
+    getBalance: function () {
+      return balance;
+    },
+    getTransactionHistory: function () {
+      return transactions;
+    },
+  };
+}
+let account = createBankAccount(1000);
+console.log(account.deposit(500)); // Balance: 1500
+console.log(account.withdraw(200)); // Balance: 1300
+console.log(account.getTransactionHistory());
