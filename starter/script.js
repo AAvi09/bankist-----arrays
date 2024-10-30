@@ -183,3 +183,14 @@ let account = createBankAccount(1000);
 console.log(account.deposit(500)); // Balance: 1500
 console.log(account.withdraw(200)); // Balance: 1300
 console.log(account.getTransactionHistory());
+
+function showName() {
+  this.name = 'john';
+  this.showName = () => {
+    console.log(this.name);
+  };
+}
+
+const result = new showName();
+const output = result.showName;
+output();
