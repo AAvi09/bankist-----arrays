@@ -71,8 +71,36 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
+currencies.forEach(function (value, key, Map) {
+  console.log(`${key} : ${value}`);
+});
+
+const currency = new Set(['usd', 'eur', 'gbp', 'usd', 'eur', 'eur']);
+currency.forEach(function (value, key, set) {
+  console.log(`${key}:${value}`);
+});
+
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(` Movement ${i + 1}  : you deposited amount of ${movement}`);
+  } else {
+    console.log(
+      ` Movement ${i + 1}  : you withdrew amount of ${Math.abs(movement)}`
+    );
+  }
+}
+console.log(`------------FOR EACH---------------`);
+movements.forEach(function (mov, i, arr) {
+  if (mov > 0) {
+    console.log(` Movement ${i + 1}  : you deposited amount of ${mov}`);
+  } else {
+    console.log(
+      ` Movement ${i + 1}  : you withdrew amount of ${Math.abs(mov)}`
+    );
+  }
+});
 /////////////////////////////////////////////////
 const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
@@ -117,80 +145,80 @@ const letters = arr.concat(arr2);
 console.log(letters);
 
 console.log(letters.join('-'));
-function createStudent(name) {
-  // name parameter is in function scope
-  let score = 0; // private variable in function scope
+// function createStudent(name) {
+//   // name parameter is in function scope
+//   let score = 0; // private variable in function scope
 
-  return {
-    getName: function () {
-      return name; // lexically bound to parent scope
-    },
-    updateScore: function (newScore) {
-      score = newScore; // can access parent's score
-    },
-    getScore: function () {
-      return score; // can access parent's score
-    },
-  };
-}
+//   return {
+//     getName: function () {
+//       return name; // lexically bound to parent scope
+//     },
+//     updateScore: function (newScore) {
+//       score = newScore; // can access parent's score
+//     },
+//     getScore: function () {
+//       return score; // can access parent's score
+//     },
+//   };
+// }
 
-let student = createStudent('Raj');
-console.log(student.getName()); // "Raj"
-student.updateScore(95);
-console.log(student.getScore()); // 95
+// let student = createStudent('Raj');
+// console.log(student.getName()); // "Raj"
+// student.updateScore(95);
+// console.log(student.getScore()); // 95
 
-function disclaimer(message) {
-  let x = message + ' ***yeh kewal darane ke liye demand he***';
+// function disclaimer(message) {
+//   let x = message + ' ***yeh kewal darane ke liye demand he***';
 
-  return function content(pooraMessage) {
-    let y = x + pooraMessage + ' ***ye poori dhamki huiii*** ';
-    console.log(y);
-  };
-}
+//   return function content(pooraMessage) {
+//     let y = x + pooraMessage + ' ***ye poori dhamki huiii*** ';
+//     console.log(y);
+//   };
+// }
 
-let dhamki1 = disclaimer('paise jldi nikal💲💵💶💷💳💸💰💴💱🧧');
-dhamki1(
-  ' wrna goli🔫💣 maar maar kar tambaa bhrr dunga shareer ke andrr🔥🧨👩‍🚒'
-);
+// let dhamki1 = disclaimer('paise jldi nikal💲💵💶💷💳💸💰💴💱🧧');
+// dhamki1(
+//   ' wrna goli🔫💣 maar maar kar tambaa bhrr dunga shareer ke andrr🔥🧨👩‍🚒'
+// );
 
-function createBankAccount(initialBalance) {
-  let balance = initialBalance;
-  let transactions = [];
+// function createBankAccount(initialBalance) {
+//   let balance = initialBalance;
+//   let transactions = [];
 
-  return {
-    deposit: function (amount) {
-      balance += amount;
-      transactions.push({ type: 'deposit', amount });
-      return `Balance : ${balance}`;
-    },
-    withdraw: function (amount) {
-      if (amount > balance) {
-        return `not sufficient funds available in the account`;
-      }
-      balance -= amount;
-      transactions.push({ type: 'withdraw', amount });
-      return `Balance: ${balance}`;
-    },
-    getBalance: function () {
-      return balance;
-    },
-    getTransactionHistory: function () {
-      return transactions;
-    },
-  };
-}
-let account = createBankAccount(1000);
-console.log(account.deposit(500)); // Balance: 1500
-console.log(account.withdraw(200)); // Balance: 1300
-console.log(account.getTransactionHistory());
+//   return {
+//     deposit: function (amount) {
+//       balance += amount;
+//       transactions.push({ type: 'deposit', amount });
+//       return `Balance : ${balance}`;
+//     },
+//     withdraw: function (amount) {
+//       if (amount > balance) {
+//         return `not sufficient funds available in the account`;
+//       }
+//       balance -= amount;
+//       transactions.push({ type: 'withdraw', amount });
+//       return `Balance: ${balance}`;
+//     },
+//     getBalance: function () {
+//       return balance;
+//     },
+//     getTransactionHistory: function () {
+//       return transactions;
+//     },
+//   };
+// }
+// let account = createBankAccount(1000);
+// console.log(account.deposit(500)); // Balance: 1500
+// console.log(account.withdraw(200)); // Balance: 1300
+// console.log(account.getTransactionHistory());
 
-function showName() {
-  this.name = 'john';
-  this.showName = () => {
-    console.log(this.name);
-  };
-}
+// function showName() {
+//   this.name = 'john';
+//   this.showName = () => {
+//     console.log(this.name);
+//   };
+// }
 
-const result = new showName();
-const output = result.showName;
-output();
+// const result = new showName();
+// const output = result.showName;
+// output();
