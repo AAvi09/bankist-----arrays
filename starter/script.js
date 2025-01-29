@@ -82,23 +82,12 @@ currency.forEach(function (value, key, set) {
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-for (const [i, movement] of movements.entries()) {
-  if (movement > 0) {
-    console.log(` Movement ${i + 1}  : you deposited amount of ${movement}`);
-  } else {
-    console.log(
-      ` Movement ${i + 1}  : you withdrew amount of ${Math.abs(movement)}`
-    );
-  }
-}
-console.log(`------------FOR EACH---------------`);
-movements.forEach(function (mov, i, arr) {
+console.group('*--*-*--*--*--*-*FOR-EACH-----**-*--*-*-*-*-*-*-*-*-*-*');
+movements.forEach((mov, i, arr) => {
   if (mov > 0) {
-    console.log(` Movement ${i + 1}  : you deposited amount of ${mov}`);
+    console.log(`Movement ${i + 1} : You deposited ${mov}`);
   } else {
-    console.log(
-      ` Movement ${i + 1}  : you withdrew amount of ${Math.abs(mov)}`
-    );
+    console.log(`Movemet ${i + 1} : You withdrew ${Math.abs(mov)}`);
   }
 });
 /////////////////////////////////////////////////
@@ -222,3 +211,11 @@ console.log(letters.join('-'));
 // const result = new showName();
 // const output = result.showName;
 // output();
+
+const names = ['rocko', 'paulie', 'jimmy', 'tommy', 'adrian'];
+console.log(names.slice(2, 4));
+console.log(names.splice(2, 2));
+
+const numbers = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+const numbers2 = numbers.reverse();
+console.log(numbers2);
